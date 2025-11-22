@@ -258,7 +258,7 @@ def get_items_to_generate():
 def generate_course_module(topic, module_num, total_modules, price, target_audience, lessons_per_module=4):
     """Generate ONE complete module to stay under rate limits"""
 
-    prompt = f"""You are Jaspreet Singh from Chager.org. Generate Module {module_num} of {total_modules} for a ${price} course.
+    prompt = f"""You are Jaspreet from Chager.org. Generate Module {module_num} of {total_modules} for a ${price} course.
 
 TOPIC: {topic}
 TARGET AUDIENCE: {target_audience}
