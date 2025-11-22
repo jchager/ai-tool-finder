@@ -429,7 +429,9 @@ def generate_complete_course(item):
         target_audience = "Busy professionals seeking practical skills"
 
     # NEW: Read lessons per module
-    lessons_per_module = props.get("Lessons per Module", {}).get("number", 4)
+    lessons_per_module = props.get("Lessons per Module", {}).get("number")
+    if not lessons_per_module:
+        lessons_per_module = 4  # Default to 4 lessons per module
 
     print(f"Generating COMPLETE course: {title}...")
     print(f"  Price: ${price}")
