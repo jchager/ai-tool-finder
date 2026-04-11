@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirate's Cove - Fun for Seasoned Sailors</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 id="site-title">&#9875; Pirate's Cove</h1>
+            <p class="tagline">Fun &amp; Games for Seasoned Sailors</p>
+        </div>
+        <nav id="main-nav" aria-label="Main navigation">
+            <button class="nav-btn active" data-page="home" aria-current="page">Home</button>
+            <button class="nav-btn" data-page="name-generator">Pirate Name</button>
+            <button class="nav-btn" data-page="jokes">Jokes &amp; Stories</button>
+            <button class="nav-btn" data-page="trivia">Trivia Quiz</button>
+            <button class="nav-btn" data-page="glossary">Glossary</button>
+        </nav>
+    </header>
+
+    <main id="app">
+        <!-- Home Page -->
+        <section id="page-home" class="page active" aria-label="Home">
+            <div class="welcome-card">
+                <h2>Welcome Aboard, Matey!</h2>
+                <p>Set sail on a fun pirate adventure from the comfort of your chair. Explore jokes, learn pirate lingo, test your knowledge, and discover your pirate name!</p>
+                <div class="feature-grid">
+                    <button class="feature-card" data-navigate="name-generator">
+                        <span class="feature-icon">&#x1F3F4;&#x200D;&#x2620;&#xFE0F;</span>
+                        <span class="feature-title">Pirate Name Generator</span>
+                        <span class="feature-desc">Find out your swashbuckling alter ego</span>
+                    </button>
+                    <button class="feature-card" data-navigate="jokes">
+                        <span class="feature-icon">&#x1F602;</span>
+                        <span class="feature-title">Jokes &amp; Stories</span>
+                        <span class="feature-desc">Laugh-out-loud pirate humor</span>
+                    </button>
+                    <button class="feature-card" data-navigate="trivia">
+                        <span class="feature-icon">&#x1F9E0;</span>
+                        <span class="feature-title">Trivia Quiz</span>
+                        <span class="feature-desc">Test your pirate knowledge</span>
+                    </button>
+                    <button class="feature-card" data-navigate="glossary">
+                        <span class="feature-icon">&#x1F4D6;</span>
+                        <span class="feature-title">Pirate Glossary</span>
+                        <span class="feature-desc">Learn to speak like a pirate</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pirate Name Generator -->
+        <section id="page-name-generator" class="page" aria-label="Pirate Name Generator">
+            <div class="page-card">
+                <h2>&#x1F3F4;&#x200D;&#x2620;&#xFE0F; Pirate Name Generator</h2>
+                <p>Enter your name below and discover your pirate identity!</p>
+                <div class="name-form">
+                    <label for="first-name">Your First Name:</label>
+                    <input type="text" id="first-name" placeholder="e.g. Margaret" maxlength="30" autocomplete="given-name">
+                    <label for="last-name">Your Last Name:</label>
+                    <input type="text" id="last-name" placeholder="e.g. Johnson" maxlength="30" autocomplete="family-name">
+                    <button id="generate-name-btn" class="action-btn">Reveal My Pirate Name!</button>
+                </div>
+                <div id="pirate-name-result" class="result-box" hidden>
+                    <p class="result-label">Your pirate name is:</p>
+                    <p id="pirate-name-output" class="pirate-name"></p>
+                    <p id="pirate-name-title" class="pirate-title"></p>
+                    <button id="generate-another-btn" class="action-btn secondary">Try Another Name!</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jokes & Stories -->
+        <section id="page-jokes" class="page" aria-label="Pirate Jokes and Stories">
+            <div class="page-card">
+                <h2>&#x1F602; Pirate Jokes &amp; Stories</h2>
+                <div id="joke-display" class="joke-box">
+                    <p id="joke-setup" class="joke-setup"></p>
+                    <p id="joke-punchline" class="joke-punchline" hidden></p>
+                </div>
+                <div class="joke-controls">
+                    <button id="reveal-punchline-btn" class="action-btn">Show the Punchline!</button>
+                    <button id="next-joke-btn" class="action-btn secondary">Next Joke</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trivia Quiz -->
+        <section id="page-trivia" class="page" aria-label="Pirate Trivia Quiz">
+            <div class="page-card">
+                <h2>&#x1F9E0; Pirate Trivia Quiz</h2>
+                <div id="quiz-intro">
+                    <p>Test your knowledge of pirate history and lore! There are 10 questions — take your time and have fun.</p>
+                    <button id="start-quiz-btn" class="action-btn">Start the Quiz!</button>
+                </div>
+                <div id="quiz-area" hidden>
+                    <div class="quiz-progress">
+                        <span id="quiz-progress-text">Question 1 of 10</span>
+                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="1">
+                            <div id="progress-fill" class="progress-fill" style="width: 10%"></div>
+                        </div>
+                    </div>
+                    <p id="quiz-question" class="quiz-question"></p>
+                    <div id="quiz-answers" class="quiz-answers"></div>
+                    <div id="quiz-feedback" class="quiz-feedback" hidden></div>
+                    <button id="next-question-btn" class="action-btn" hidden>Next Question</button>
+                </div>
+                <div id="quiz-results" hidden>
+                    <h3 id="quiz-score"></h3>
+                    <p id="quiz-rank"></p>
+                    <div id="quiz-review"></div>
+                    <button id="restart-quiz-btn" class="action-btn">Play Again!</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Glossary -->
+        <section id="page-glossary" class="page" aria-label="Pirate Glossary">
+            <div class="page-card">
+                <h2>&#x1F4D6; Pirate Glossary</h2>
+                <p>Learn to talk like a true pirate! Click any term to hear more about it.</p>
+                <div class="glossary-search">
+                    <label for="glossary-filter">Search terms:</label>
+                    <input type="text" id="glossary-filter" placeholder="Type to search...">
+                </div>
+                <div id="glossary-list" class="glossary-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&#9875; Pirate's Cove &mdash; Smooth sailing for seasoned sailors</p>
+        <button id="font-increase" class="font-btn" aria-label="Increase text size">A+</button>
+        <button id="font-decrease" class="font-btn" aria-label="Decrease text size">A-</button>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
